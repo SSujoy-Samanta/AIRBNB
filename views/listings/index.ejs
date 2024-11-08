@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <!-- <h2>All listings</h2> -->
+    <!-- <form action="/listings/new" method="get"><button>ADD NEW</button></form> -->
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p><i>Trending</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-key"></i></div>
+            <p><i>New</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p><i>Rooms</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p><i>Iconic City</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p><i>Amazing Pools</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p><i>Beach</i></p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p><i>Arctic</i></p>
+        </div>
+        
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p><i>Mountain</i></p>
+        </div>
+        <div class="ms-auto options">
+            <div class="filter-icon filter-btn">
+                <div><i class="fa-solid fa-filter"></i><span>Filter</span></div>
+                <div class="filter-opt">
+                    <div class="filter-content">
+                        <div class="nav-filter">
+                            <span>Filter</span>
+                            <i class="fa-regular fa-circle-xmark filter-cross"></i>
+                        </div>
+                        <div class="filter-container">
+                            <p class="p1"><b>Price Range</b></p>
+                            <p class="p2"><i>Nightly prices before fees and taxes</i></p>
+                            <div class="price-range">
+                                <div class="min-max">
+                                    <label for="price" class="form-label">Minimum</label>
+                                    <p>&#8377;<input type="number" name="min-price" value="500" class="min-price"></p>
+                                </div>
+                                <i class="fa-solid fa-minus"></i>
+                                <div class="min-max">
+                                    <label for="price" class="form-label">Maximum</label>
+                                    <p>&#8377;<input type="number" name="max-price" value="5000" class="max-price"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="filter-footer">
+                            <button class="btn btn-light clear-all">Clear All</button>
+                            <button class="btn btn-dark show-result" type="submit">Show Result</button>
+                        </footer>
+                    </div>
+                </div>    
+            </div>
+            <div class="tax-toggle">
+                <div class="form-check form-switch form-check-reverse">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+                </div>
+            </div>
+        </div>
+        <!-- <div class=" filter filter-icon">
+            <div><i class="fa-solid fa-filter"></i></i></div>
+            <div><p>Filter</p></div>
+        </div>
+        <div class="tax-toggle">
+            <div class="form-check form-switch form-check-reverse">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+            </div>
+        </div> -->
+    </div>
+    <% if (someListing.length>0) { %>
+        <div class="row row-cols-lg-4 row-cols-md-4 row-cols-sm-1 mt-2" id="root">
+            <% for( let listen of someListing ) { %>
+                <a href="/listings/<%- listen._id %>">
+                    <div class="card col card-ind">
+                        <img src="<%= listen.image.url %>" alt="listing image" class="card-img-top index-img">
+                        <div class="card-body">
+                            <p class="card-text"><b><%= listen.title %> </b><br>
+                                &#8377;<%= listen.price.toLocaleString("en-IN") %>/Night
+                                <i class="tax-info">+ 18% GST= <%= (listen.price*0.18+listen.price).toLocaleString("en-IN")%>/Night </i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    <% } else { %>
+        <div class="row row-cols-lg-4 row-cols-md-4 row-cols-sm-1 mt-2" id="root">
+            <% for( let listen of allListing ) { %>
+                <a href="/listings/<%- listen._id %>">
+                    <div class="card col card-ind">
+                        <img src="<%= listen.image.url %>" alt="listing image" class="card-img-top index-img">
+                        <div class="card-body">
+                            <p class="card-text"><b><%= listen.title %> </b><br>
+                                &#8377;<%= listen.price.toLocaleString("en-IN") %>/Night
+                                <i class="tax-info">+ 18% GST= <%= (listen.price*0.18+listen.price).toLocaleString("en-IN")%>/Night </i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    <% } %>        
+   
+</body>

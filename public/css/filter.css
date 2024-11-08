@@ -1,0 +1,143 @@
+#filters{
+    margin-top: .5rem;
+    display: flex;
+
+}
+.filter div i{
+    color: black;
+}
+.filter{
+    text-align: center;
+    margin: 0.4rem 0.8rem 0;
+    opacity: 0.7;
+}
+.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.tax-toggle{
+    border: 2px solid black;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tax-toggle{
+    padding: .5rem !important;
+    border: 2px solid rgb(226, 225, 218);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.filter-icon{
+    margin-right: 2rem;
+    padding: .5rem;
+    text-align: center;
+    border: 2px solid rgb(226, 225, 218);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.filter-icon div i{
+    font-size: 1.5rem;
+    margin-right: .2rem;
+}
+.filter-icon:hover{
+    background-color: rgb(106, 165, 238);
+}
+.filter-opt{
+    display: none;
+    position: absolute;
+    top: 5rem !important;
+    right: 0rem;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: default;
+    justify-content: center;
+}
+.filter-cross{
+    cursor: pointer;
+}
+.filter-content{
+    position: fixed;
+    left: 25rem;
+    height: 35rem;
+    width: 50rem;
+    padding: .5rem;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(232, 231, 222);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    animation: filter .4s 1 forwards;
+    transform: translateY(-100rem);
+}
+
+@keyframes filter{
+    from{
+        transform: translateY(-100rem);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+.nav-filter{
+    font-size: 1.5rem;
+    justify-content: right;
+    align-items: center;
+    border-bottom: 3px solid rgb(239, 235, 198);
+    display:flex;  
+    padding-bottom: .2rem;
+    position: sticky;
+}
+.nav-filter span{
+    margin-right: 20rem;
+}
+.filter-footer{
+    margin-top: auto;
+    border-top: 3px solid rgb(232, 231, 222);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-light{
+    border: 2px solid rgb(218, 212, 212) !important;
+}
+.filter-container{
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: start;
+    margin-left: .5rem;
+}
+.filter-container .p1{
+    margin-bottom: 0rem;
+    padding: .3rem;
+    font-size: 1.5rem;
+}
+.filter-container .p2 i{
+    margin-bottom: 1rem;
+    padding: .1rem;
+    font-size: 1rem ;
+}
+.min-max input{
+    border: none !important;
+}
+.min-max p{
+    margin-bottom:0 ;
+}
+.min-max{
+    border: 2px solid rgb(160, 160, 160);
+    padding: .5rem;
+    border-radius: 1rem;
+}
+.min-max:hover{
+    border: 2px solid black;
+}
+.price-range{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin: auto; */
+}

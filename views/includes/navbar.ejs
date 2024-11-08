@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listings">Explore</a>
+                <a class="nav-link" href="/listings/new">Add New</a>
+            </div>
+            <div class="navbar-nav ms-auto search-bar">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-inp" id="search-bar" type="search" placeholder="Search Destinsation" aria-label="Search" name="search">
+                    <!-- <input type="submit" value="search" class="form-control me-2" > -->
+                    <button class="btn btn-outline-danger btn-search" type="submit" value="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <% if (!CurrUser) { %>
+                  <a class="nav-link" href="/login"><button class="btn btn-outline-primary">Log In</button></a>
+                  <a class="nav-link"  href="/singup"><button class="btn btn-outline-info">Sing Up</button></a>
+                <% } %>
+                <% if (CurrUser) { %>
+                  <a class="nav-link" href="/logout"><button class="btn btn-outline-warning">Log Out</button></a>
+                <% } %>
+                
+            </div>
+        </div>
+    </div>
+</nav>
